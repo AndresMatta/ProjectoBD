@@ -2,29 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Student;
+use App\Teacher;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class TeacherController extends Controller
 {
-    /**
-    *  StudentController constructor.
-    */
-    public function __construct()
-    {
-        $this->middleware('auth')->except(['index', 'show']);
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $students = Student::latest()->get();
-
-        return view('students.index', ['students' => $students]);
+    {   
+        $teachers = Teacher::latest()->get();
+        
+        return view('teachers.index', ['teachers'  => $teachers]);
     }
 
     /**
@@ -34,7 +26,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('students.create');
+        return view('teachers.create');
     }
 
     /**
@@ -46,7 +38,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'dni' => 'required|unique:students',
+            'dni' => 'required|unique:teachers',
             'name' => 'required',
             'last_name' => 'required',
             'birthdate' => 'required',
@@ -56,7 +48,7 @@ class StudentController extends Controller
             'postal_code' => 'required'
         ]);
 
-        Student::create([
+        Teacher::create([
             'dni' => request('dni'),
             'name' => request('name'),
             'last_name' => request('last_name'),
@@ -67,27 +59,27 @@ class StudentController extends Controller
             'postal_code' => request('postal_code')
         ]);
 
-        return redirect('/students');
+        return redirect('/teachers');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show(Teacher $teacher)
     {
-        return view('students.show', ['student' => $student]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(Teacher $teacher)
     {
         //
     }
@@ -96,10 +88,10 @@ class StudentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Student  $student
+     * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Teacher $teacher)
     {
         //
     }
@@ -107,10 +99,10 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Teacher  $teacher
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Teacher $teacher)
     {
         //
     }

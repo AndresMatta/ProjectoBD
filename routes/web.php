@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::resource('/students', 'StudentController');
+Route::resource('/teachers', 'TeacherController');
+Route::resource('/grades', 'GradeController');
+Route::resource('/subjects', 'SubjectController');
