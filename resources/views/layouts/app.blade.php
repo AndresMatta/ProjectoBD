@@ -46,10 +46,9 @@
                         <li class="dropdown">
                           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estudiantes <span class="caret"></span></a>
                           <ul class="dropdown-menu">
-                            <li><a href="/students">Estudiantes Matriculados</a></li>
+                            <li><a href="/students">Ver Lista</a></li>
                             @if(Auth::check())
                             <li><a href="/students/create">Añadir un Estudiante</a></li>
-                            <li><a href="/students">Actualzar Información de Estudiante</a></li>
                             @endif
                           </ul>
                         </li>
@@ -59,7 +58,6 @@
                             <li><a href="/teachers">Profesores Registrados</a></li>
                             @if(Auth::check())
                             <li><a href="/teachers/create">Añadir un Profesor</a></li>
-                            <li><a href="/teachers">Actualzar Información de Profesor</a></li>
                             @endif
                           </ul>
                         </li>
@@ -69,7 +67,6 @@
                             <li><a href="/grades">Cursos Registrados</a></li>
                             @if(Auth::check())
                             <li><a href="/grades/create">Añadir un Curso</a></li>
-                            <li><a href="/grades">Actualzar Información de Curso</a></li>
                             @endif
                           </ul>
                         </li>
@@ -79,7 +76,15 @@
                             <li><a href="/subjects">Asignaturas Registrados</a></li>
                             @if(Auth::check())
                             <li><a href="/subjects/create">Añadir un Asignatura</a></li>
-                            <li><a href="/subjects">Actualzar Información de Asignatura</a></li>
+                            @endif
+                          </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Aulas <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a href="/classrooms">Aulas Registradas</a></li>
+                            @if(Auth::check())
+                            <li><a href="/classrooms/create">Añadir un Aula</a></li>
                             @endif
                           </ul>
                         </li>
@@ -122,5 +127,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://use.fontawesome.com/d9f383faf7.js"></script>
 </body>
 </html>

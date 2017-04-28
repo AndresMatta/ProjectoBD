@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Subject;
+use App\Classroom;
 use Illuminate\Http\Request;
 
-class SubjectController extends Controller
+class ClassroomController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $subjects = Subject::latest()->get();
+        $classrooms = Classroom::latest()->get();
 
-        return view('subjects.index', ['subjects' => $subjects]);
+        return view('classrooms.index', ['classrooms' => $classrooms]);
     }
 
     /**
@@ -26,14 +26,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        $teachers = \App\Teacher::latest()->get();
-
-        $grades = \App\Grade::latest()->get();
-
-        return view('subjects.create', [
-            'teachers' => $teachers,
-            'grades' => $grades
-            ]);
+        return view('classrooms.create');
     }
 
     /**
@@ -45,41 +38,38 @@ class SubjectController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'cod' => 'required|unique:subjects',
-            'name' => 'required',
-            'hours_per_week' => 'required',
-            'teacher_id' => 'required'
+            'cod' => 'required|unique:classrooms',
+            'floor' => 'required',
+            'number_of_desks' => 'required'
         ]);
 
-        Subject::create([
+        Classroom::create([
             'cod' => request('cod'),
-            'name' => request('name'),
-            'hours_per_week' => request('hours_per_week'),
-            'teacher_id' => request('teacher_id'),
-            'grade_id' => request('grade_id')
+            'floor' => request('floor'),
+            'number_of_desks' => request('number_of_desks')
         ]);
 
-        return redirect('/subjects');
+        return redirect('/classrooms');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Subject  $subject
+     * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function show(Subject $subject)
+    public function show(Classroom $classroom)
     {
-        return view('subjects.show', ['subject' => $subject]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Subject  $subject
+     * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function edit(Subject $subject)
+    public function edit(Classroom $classroom)
     {
         //
     }
@@ -88,10 +78,10 @@ class SubjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Subject  $subject
+     * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subject $subject)
+    public function update(Request $request, Classroom $classroom)
     {
         //
     }
@@ -99,10 +89,10 @@ class SubjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Subject  $subject
+     * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subject $subject)
+    public function destroy(Classroom $classroom)
     {
         //
     }

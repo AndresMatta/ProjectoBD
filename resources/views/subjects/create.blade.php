@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group">
-                           <label for="last_name">Código de la Asignatura: </label>
+                           <label for="cod">Código de la Asignatura: </label>
                            <input type="text" class="form-control" value="{{ old('cod') }}" id="cod" name="cod" placeholder="Ingrese la código" required>
                        </div>
 

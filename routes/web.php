@@ -23,3 +23,6 @@ Route::resource('/students', 'StudentController');
 Route::resource('/teachers', 'TeacherController');
 Route::resource('/grades', 'GradeController');
 Route::resource('/subjects', 'SubjectController');
+Route::resource('/classrooms', 'ClassroomController');
+Route::get('/records/{subject}', 'StudentRecordController@show');
+Route::get('/records/{subject}/{student}', 'StudentRecordController@record');

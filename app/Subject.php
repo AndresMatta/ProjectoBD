@@ -24,7 +24,7 @@ class Subject extends Model
     }
 
     /**
-     * Get the teacher that gives classes in the grade.
+     * Get the grade that owns the subject.
      * 
      * @return App\Grade
      */
@@ -32,4 +32,26 @@ class Subject extends Model
     {
    		return $this->belongsTo('App\Grade');
     }
+
+    /**
+     * Get the records of the subject for a specific student.
+     * 
+     * @return App\StudentRecord
+     */
+    public function records()
+    {
+        return $this->hasMany('App\StudentRecord');
+    }
+
+    /**
+     * Get the schedule of the subject in a specific classroom.
+     * 
+     * @return App\SubjectTaughPerClassroom
+     */
+    public function schedules()
+    {
+        return $this->hasMany('App\SubjectTaughPerClassroom');
+    }
+
+
 }

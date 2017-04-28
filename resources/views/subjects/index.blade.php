@@ -11,7 +11,9 @@
                     <h5>Asignaturas en el sistema:</h5>
                     <ul>
                         @foreach($subjects as $subject)
-                            <li>{{ $subject->name}}</li>
+                            <li>
+                            <a href="/records/{{ $subject->id }}">{{ $subject->name}}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>

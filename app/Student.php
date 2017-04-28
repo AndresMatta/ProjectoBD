@@ -12,4 +12,14 @@ class Student extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * Get the records of the subject for a specific student.
+     * 
+     * @return App\StudentRecord
+     */
+    public function records()
+    {
+        return $this->hasMany('App\StudentRecord');
+    }
 }

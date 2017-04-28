@@ -5,15 +5,13 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Estudiantes</div>
+                <div class="panel-heading">Aulas</div>
 
                 <div class="panel-body">
-                    <h5>Estudiantes en el Sistema:</h5>
+                    <h5>Aulas en el sistema:</h5>
                     <ul>
-                        @foreach($students as $student)
-                            <li>
-                            <a href="/students/{{ $student->id }}">{{ $student->name}}  {{ $student->last_name}}</a>
-                            </li>
+                        @foreach($classrooms as $classroom)
+                            <li>{{ $classroom->cod}}</li>
                         @endforeach
                     </ul>
                 </div>
