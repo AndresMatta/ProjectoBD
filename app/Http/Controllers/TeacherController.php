@@ -70,7 +70,7 @@ class TeacherController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        //
+        return view('teachers.show', ['teacher' => $teacher]);
     }
 
     /**

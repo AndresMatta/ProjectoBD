@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Grade;
+use App\Subject;
 use Illuminate\Http\Request;
 
 class GradeController extends Controller
@@ -62,7 +63,12 @@ class GradeController extends Controller
      */
     public function show(Grade $grade)
     {
-        //
+        $subjects = Subject::latest()->get();
+
+        return view('grades.show', [
+            'grade' => $grade,
+            'subjects' => $subjects
+        ]);
     }
 
     /**
@@ -85,7 +91,18 @@ class GradeController extends Controller
      */
     public function update(Request $request, Grade $grade)
     {
-        //
+        $this->validate($request, [
+            'subject_id' => 'required'
+        ]);
+
+        $subject = Subject::find($request->subject_id);
+
+        $subject->grade_id = $grade->id;
+
+        $subject->save(); 
+
+        return redirect('/');
+
     }
 
     /**
@@ -98,4 +115,5 @@ class GradeController extends Controller
     {
         //
     }
+
 }

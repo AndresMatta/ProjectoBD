@@ -15,7 +15,7 @@
                         @endforeach    
                     </ul>
 
-                    <p>Este curso es impartido por el profesor: {{ $subject->teacher->name }}</p>
+                    <p>Esta materia es impartido por el profesor: {{ $subject->teacher->name }}</p>
                 </div>
             </div>
         </div>

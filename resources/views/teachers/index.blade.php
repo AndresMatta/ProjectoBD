@@ -11,7 +11,9 @@
                     <h5>Profesores en el Sistema:</h5>
                     <ul>
                         @foreach($teachers as $teacher)
-                            <li>{{ $teacher->name}}  {{ $teacher->last_name}}</li>
+                            <li>
+                            <a href="/teachers/{{ $teacher->id }}">{{ $teacher->name}}  {{ $teacher->last_name}}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
